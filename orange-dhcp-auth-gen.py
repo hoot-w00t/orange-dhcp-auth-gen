@@ -18,7 +18,7 @@ def tlvBytes(type: int, value: bytes) -> bytes:
 if __name__ == "__main__":
     USERNAME_PREFIX = "fti/"
 
-    arg_parser = argparse.ArgumentParser("DHCP authentication option generator for Orange Livebox")
+    arg_parser = argparse.ArgumentParser(description="DHCP authentication option generator for Orange Livebox")
     arg_parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False, help="Print more information")
     arg_parser.add_argument("--separator", dest="separator", type=str, default=":", help="Hexadecimal separator")
     arg_parser.add_argument("username", type=str, help="FTI username")
