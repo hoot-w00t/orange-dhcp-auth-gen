@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import hashlib
 import secrets
 import argparse
@@ -29,7 +30,11 @@ if __name__ == "__main__":
     username = args.username if args.username.startswith(USERNAME_PREFIX) else f"{USERNAME_PREFIX}{args.username}"
     if args.password is None:
         from getpass import getpass
-        password = getpass("Password: ")
+
+        if sys.stdin.isatty():
+            password = getpass(prompt="Password: ")
+        else:
+            password = sys.stdin.read().strip()
     else:
         password = args.password
 
